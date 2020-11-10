@@ -16,6 +16,10 @@ let employeeList = [];
 
 let idCheck = val => employeeList.some(employee => (employee.id === val))
 
+if (!fs.existsSync(OUTPUT_DIR)){
+    fs.mkdirSync(OUTPUT_DIR);
+  }
+
 const managerFunc = () => {
     inquirer.prompt([
         {
@@ -37,7 +41,7 @@ const managerFunc = () => {
             type: "input",
             name: "email",
             message: "What is your employee email?",
-            validate: val => (val.length < 3) ? "Name must be at least 2 or more characters" : true,
+            validate: val => (val.length < 3) ? "Email must be at least 2 or more characters" : true,
         },
         {
 
@@ -81,19 +85,19 @@ const engineerFunc = () => {
             type: "input",
             name: "id",
             message: "What is their employee id?",
-            validate: val => (!isNaN(parseInt(val)) || !idCheck(val)) ? "Id is either not a number or already in use":true,
+            validate: val => (isNaN(parseInt(val))) ? "Id must be a number":(idCheck(val)) ? "Id already in use":true,
         },
         {
             type: "input",
             name: "email",
             message: "What is their employee email?",
-            validate: val => (val.length < 3) ? "Name must be at least 2 or more characters" : true,
+            validate: val => (val.length < 3) ? "Email must be at least 2 or more characters" : true,
         },
         {
             type: "input",
             name: "github",
             message: "What is their Github username?",
-            validate: val => (val.length < 3) ? "Name must be at least 2 or more characters" : true,
+            validate: val => (val.length < 3) ? "Username must be at least 2 or more characters" : true,
         },
         {
             type: "list",
@@ -131,19 +135,19 @@ const internFunc = () => {
             type: "input",
             name: "id",
             message: "What is their employee id?",
-            validate: val => (!isNaN(parseInt(val)) || !idCheck(val)) ? "Id is either not a number or already in use":true,
+            validate: val => (isNaN(parseInt(val))) ? "Id must be a number":(idCheck(val)) ? "Id already in use":true,
         },
         {
             type: "input",
             name: "email",
             message: "What is their employee email?",
-            validate: val => (val.length < 3) ? "Name must be at least 2 or more characters" : true,
+            validate: val => (val.length < 3) ? "Email must be at least 2 or more characters" : true,
         },
         {
             type: "input",
             name: "school",
             message: "What school do they attend?",
-            validate: val => (val.length < 3) ? "Name must be at least 2 or more characters" : true,
+            validate: val => (val.length < 3) ? "Please enter full university name" : true,
         },
         {
             type: "list",

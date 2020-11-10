@@ -22,8 +22,11 @@ This is a command line application designed to create an employee websitethat di
 npm i
     
 ## Usage
-    
+![employee template engine tutorial gif](/images/employee-template-engine-gif.gif) 
 The application utilizes the npm inquirer package to ask the user a given set of prompts about themselves as well as their employees. There are also validation statements that provide error messages if the responses are not the valid type or (in the case of employee id) is already taken. Once the user has entered the information for the manager (user), they will be asked if they would like to add another employee (either an engineer, an intern, or finished). This will ask a new set of questions for about the next employee. After each employee's information is added, all of their details will be added to an array of employees. This array will be called upon after the user has finished adding employees to create a html document. The html document is created by combining the various html templates together to create one large html document with all of the employees information displayed.
+
+Below is an example image of the final website that is created. You can click on the image to view the video tutorial.
+[![example website. click to view tutorial video](/images/example-employee-website.PNG)](https://youtu.be/8zMPxrv5w8E)
     
 ## License
     
